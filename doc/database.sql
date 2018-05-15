@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 15, 2018 at 09:47 AM
+-- Generation Time: May 15, 2018 at 11:18 AM
 -- Server version: 5.7.22-0ubuntu18.04.1
 -- PHP Version: 7.2.3-1ubuntu1
 
@@ -38,6 +38,30 @@ INSERT INTO `post` (`post_id`, `post_subject`, `post_text`, `post_create`, `user
 (1, 'test', 'testest', '2018-05-15 08:14:53', 1),
 (2, '123123', '23234234234', '2018-05-15 09:42:40', 1),
 (3, '123123', '23234234234', '2018-05-15 09:42:44', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `post_tags`
+--
+
+DROP TABLE IF EXISTS `post_tags`;
+CREATE TABLE `post_tags` (
+  `post_id` int(10) UNSIGNED NOT NULL,
+  `tag_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tag`
+--
+
+DROP TABLE IF EXISTS `tag`;
+CREATE TABLE `tag` (
+  `tag_id` int(10) UNSIGNED NOT NULL,
+  `tag_name` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -121,6 +145,18 @@ ALTER TABLE `post`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `post_tags`
+--
+ALTER TABLE `post_tags`
+  ADD UNIQUE KEY `post_id` (`post_id`,`tag_id`);
+
+--
+-- Indexes for table `tag`
+--
+ALTER TABLE `tag`
+  ADD PRIMARY KEY (`tag_id`);
+
+--
 -- Indexes for table `translations`
 --
 ALTER TABLE `translations`
@@ -142,6 +178,11 @@ ALTER TABLE `users`
 --
 ALTER TABLE `post`
   MODIFY `post_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `tag`
+--
+ALTER TABLE `tag`
+  MODIFY `tag_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `translations`
 --
