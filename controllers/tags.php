@@ -1,5 +1,5 @@
 <?php
-
+//
 class posts extends Controller
 {
         function index(){
