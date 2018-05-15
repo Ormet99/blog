@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 15, 2018 at 08:22 AM
+-- Generation Time: May 15, 2018 at 09:47 AM
 -- Server version: 5.7.22-0ubuntu18.04.1
 -- PHP Version: 7.2.3-1ubuntu1
 
@@ -35,7 +35,9 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`post_id`, `post_subject`, `post_text`, `post_create`, `user_id`) VALUES
-(1, 'test', 'testest', '2018-05-15 08:14:53', 1);
+(1, 'test', 'testest', '2018-05-15 08:14:53', 1),
+(2, '123123', '23234234234', '2018-05-15 09:42:40', 1),
+(3, '123123', '23234234234', '2018-05-15 09:42:44', 1);
 
 -- --------------------------------------------------------
 
@@ -139,7 +141,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `post_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `translations`
 --
@@ -158,5 +160,5 @@ ALTER TABLE `users`
 -- Constraints for table `post`
 --
 ALTER TABLE `post`
-  ADD CONSTRAINT `post` FOREIGN KEY (`post_id`) REFERENCES `users` (`user_id`);
+  ADD CONSTRAINT `poststs` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 SET FOREIGN_KEY_CHECKS=1;

@@ -2,7 +2,6 @@
 
 class posts extends Controller
 {
-
     /**
      * This is a normal action which will be called when user visits /posts/index URL. Since index is the default
      * action name, it may be omitted (URL can be /posts). Since posts is by default the default controller, it may
@@ -11,9 +10,7 @@ class posts extends Controller
      */
     function index()
     {
-
-        $this->users = get_all("SELECT * FROM users");
-        $this->users = get_all("SELECT * FROM post");
+        $this->posts = get_all("SELECT * FROM post");
     }
 
     function view() {
